@@ -1,0 +1,76 @@
+{
+  "Polaris_Red_clip": {
+    "ridge_lambda": 0.1,
+    "decode": {
+      "mae_full_deg": 9.837385560121884,
+      "mae_rot_deg": 9.837385560122568,
+      "mae_perp_deg": 39.28115711556356,
+      "mae_rot_to_perp_ratio": 3.9930484451881276
+    },
+    "fourier": {
+      "k_indices": [
+        1,
+        2
+      ],
+      "power_rot": 261.1999901845363,
+      "power_perp": 1.2641964025122224e-29,
+      "fraction_rot": 0.9521833910442719,
+      "fraction_perp": 0.2086072443099094,
+      "power_ratio_rot_perp": 4.5644790246579205
+    },
+    "bootstrap": {
+      "n": 128,
+      "sample_ratio": 0.7,
+      "mean_principal_angle_deg": 13.571554629769718,
+      "p95_principal_angle_deg": 16.189402899989787
+    },
+    "unsupervised": {
+      "ssa_principal_angles_deg": [
+        77.68845013954487,
+        82.20136822659217
+      ],
+      "dft_principal_angles_deg": [
+        78.65847078160043,
+        87.8515207587245
+      ],
+      "dft_top_dims": [
+        692,
+        544,
+        404,
+        644,
+        131,
+        564,
+        413,
+        703,
+        24,
+        72,
+        145,
+        3,
+        450,
+        467,
+        195,
+        605
+      ]
+    },
+    "covariance": {
+      "eigenvalues": [
+        0.005245225190165405,
+        0.0011232069006994585
+      ]
+    },
+    "procrustes": {
+      "scale": 21.47417720051721,
+      "R": [
+        [
+          0.9340930012747185,
+          0.35702978162835186
+        ],
+        [
+          0.3570297816283519,
+          -0.9340930012747187
+        ]
+      ]
+    },
+    "cross_object": null
+  }
+}

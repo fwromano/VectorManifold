@@ -1,0 +1,37 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.hypothesis/
+*.egg-info/
+
+# Notebooks and checkpoints
+.ipynb_checkpoints/
+
+# Editor and OS cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Virtual environments & environment files
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Project artifacts and large generated assets
+artifacts/
+.cache/
+assets/models/
+data/raw/
+data/processed/
+

@@ -1,0 +1,18 @@
+{
+  "color": [
+    "a photo of a red car",
+    "a photo of a blue car",
+    "a photo of a white car"
+  ],
+  "vehicle": [
+    "a photo of a sedan",
+    "a photo of an suv",
+    "a photo of a coupe"
+  ],
+  "side": [
+    "front view of a car",
+    "rear view of a car",
+    "left side of a car",
+    "right side of a car"
+  ]
+}

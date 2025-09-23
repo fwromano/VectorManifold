@@ -1,0 +1,28 @@
+{
+  "color": [
+    "a photo of a white car",
+    "a photo of a gray car",
+    "a photo of a black car",
+    "a photo of a red car",
+    "a photo of a blue car"
+  ],
+  "type": [
+    "a photo of a person",
+    "a photo of a car",
+    "a photo of a truck"
+  ],
+  "occupancy": [
+    "a vehicle with a driver inside",
+    "an empty vehicle"
+  ],
+  "armament": [
+    "an unarmed vehicle",
+    "an armed vehicle"
+  ],
+  "side": [
+    "front view of a car",
+    "right side of a car",
+    "rear view of a car",
+    "left side of a car"
+  ]
+}
