@@ -32,6 +32,5 @@ env/
 artifacts/
 .cache/
 assets/models/
-data/raw/
-data/processed/
+data/*
 
