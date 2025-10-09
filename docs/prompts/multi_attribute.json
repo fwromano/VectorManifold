@@ -1,28 +1,326 @@
 {
-  "color": [
-    "a photo of a white car",
-    "a photo of a gray car",
-    "a photo of a black car",
-    "a photo of a red car",
-    "a photo of a blue car"
-  ],
-  "type": [
-    "a photo of a person",
-    "a photo of a car",
-    "a photo of a truck"
-  ],
-  "occupancy": [
-    "a vehicle with a driver inside",
-    "an empty vehicle"
-  ],
-  "armament": [
-    "an unarmed vehicle",
-    "an armed vehicle"
-  ],
-  "side": [
-    "front view of a car",
-    "right side of a car",
-    "rear view of a car",
-    "left side of a car"
-  ]
+  "color": {
+    "white": {
+      "synonyms": [
+        "a photo of a white vehicle",
+        "a white Jeep SUV on a rotating display",
+        "a bright white Wrangler showcased indoors",
+        "a glossy white SUV spinning on a turntable",
+        "a clean white sport utility vehicle under studio lights",
+        "a vehicle with white body panels",
+        "a showroom SUV painted white",
+        "a pearl white SUV under showroom lights",
+        "a clean white Jeep with chrome accents"
+      ],
+      "negatives": [
+        "a black Jeep SUV",
+        "a dark gray SUV with mud splashes",
+        "a gray vehicle with metallic paint",
+        "a glossy black vehicle"
+      ]
+    },
+    "gray": {
+      "synonyms": [
+        "a photo of a gray vehicle",
+        "a gray Jeep SUV on a rotating display",
+        "a metallic gray Wrangler spinning on a platform",
+        "a matte gray SUV illuminated by showroom lights",
+        "a neutral gray SUV turning on a display stand",
+        "a vehicle with gray body panels"
+      ],
+      "negatives": [
+        "a bright colorful Jeep SUV",
+        "a yellow Jeep on a turntable",
+        "a bright white vehicle",
+        "a deep black vehicle"
+      ]
+    },
+    "black": {
+      "synonyms": [
+        "a photo of a black vehicle",
+        "a black Jeep SUV on a rotating display",
+        "a shiny black Wrangler on a turntable",
+        "a deep black SUV showcased indoors",
+        "a glossy midnight black SUV spinning in place",
+        "a vehicle with black body panels"
+      ],
+      "negatives": [
+        "a white Jeep SUV",
+        "a bright blue SUV on display",
+        "a bright red vehicle",
+        "a colorful SUV under showroom lights"
+      ]
+    },
+    "red": {
+      "synonyms": [
+        "a photo of a red vehicle",
+        "a red Jeep SUV on a rotating platform",
+        "a bright red Wrangler on a turntable",
+        "a cherry red SUV showcased indoors",
+        "a glossy crimson Jeep spinning on display",
+        "a vehicle with red body panels",
+        "an off-road side-by-side with a red roll cage"
+      ],
+      "negatives": [
+        "a blue Jeep SUV",
+        "a green SUV under studio lights",
+        "a matte black vehicle",
+        "a dark gray vehicle"
+      ]
+    },
+    "blue": {
+      "synonyms": [
+        "a photo of a blue vehicle",
+        "a blue Jeep SUV on a rotating platform",
+        "a bright blue Wrangler on a turntable",
+        "a vibrant blue SUV showcased indoors",
+        "a glossy cobalt blue Jeep spinning on display",
+        "a vehicle with blue body paint"
+      ],
+      "negatives": [
+        "a red Jeep SUV",
+        "an orange SUV on a rotating display",
+        "a black vehicle with glowing red tail lights",
+        "a bright orange vehicle"
+      ]
+    },
+    "green": {
+      "synonyms": [
+        "a photo of a green vehicle",
+        "a green Jeep SUV on a rotating platform",
+        "a bright green Wrangler showcased indoors",
+        "a vibrant green SUV spinning on a turntable",
+        "a glossy lime green Jeep on display",
+        "a vehicle with green body paint"
+      ],
+      "negatives": [
+        "a red Jeep SUV",
+        "a blue SUV on a rotating platform",
+        "a bright yellow vehicle",
+        "a red vehicle with glossy paint"
+      ]
+    },
+    "yellow": {
+      "synonyms": [
+        "a photo of a yellow vehicle",
+        "a yellow Jeep SUV on a rotating platform",
+        "a bright yellow Wrangler on a turntable",
+        "a vibrant yellow SUV showcased indoors",
+        "a sunshine yellow Jeep spinning on display",
+        "a vehicle with yellow body panels",
+        "a lemon yellow vehicle with bright paint"
+      ],
+      "negatives": [
+        "a gray Jeep SUV",
+        "a black SUV on a rotating display",
+        "a burnt orange vehicle",
+        "a white vehicle under studio lights"
+      ]
+    },
+    "orange": {
+      "synonyms": [
+        "a photo of an orange vehicle",
+        "an orange Jeep SUV on a rotating platform",
+        "a bright orange Wrangler on a turntable",
+        "a vibrant orange SUV showcased indoors",
+        "a glossy tangerine Jeep spinning on display",
+        "a vehicle with orange body paint",
+        "a burnt orange Jeep body on display",
+        "a vivid orange SUV with bright body panels",
+        "a pumpkin orange Jeep Wrangler on display"
+      ],
+      "negatives": [
+        "a green Jeep SUV",
+        "a blue SUV on a rotating platform",
+        "a bright yellow vehicle",
+        "a glossy red vehicle",
+        "a canary yellow vehicle",
+        "a lemon yellow SUV"
+      ]
+    },
+    "violet": {
+      "synonyms": [
+        "a photo of a violet vehicle",
+        "a violet Jeep SUV on a rotating platform",
+        "a purple Wrangler spinning on a turntable",
+        "a deep violet SUV showcased indoors",
+        "a glossy purple Jeep on display",
+        "a vehicle with purple body panels"
+      ],
+      "negatives": [
+        "a gray Jeep SUV",
+        "a yellow SUV on a rotating display",
+        "a blue vehicle with cool lighting",
+        "a cherry red vehicle"
+      ]
+    },
+    "indigo": {
+      "synonyms": [
+        "a photo of an indigo vehicle",
+        "an indigo Jeep SUV on a rotating platform",
+        "a dark blue indigo Wrangler on a turntable",
+        "an indigo SUV showcased indoors",
+        "a glossy indigo Jeep spinning on display",
+        "a vehicle painted deep indigo",
+        "a dark indigo SUV under showroom lights"
+      ],
+      "negatives": [
+        "a bright yellow Jeep SUV",
+        "a red SUV on a rotating platform",
+        "a bright cobalt blue vehicle",
+        "a purple vehicle with glossy paint"
+      ]
+    }
+  },
+  "type": {
+    "suv": {
+      "synonyms": [
+        "a Jeep SUV on a rotating platform",
+        "a rugged SUV showcased indoors",
+        "a four-door SUV spinning on display",
+        "a Wrangler sport utility vehicle on a turntable"
+      ],
+      "negatives": [
+        "a motorcycle on a platform"
+      ]
+    },
+    "side_by_side": {
+      "synonyms": [
+        "a side-by-side off-road vehicle on a rotating platform",
+        "a Polaris side-by-side showcased indoors",
+        "a two-seat off-road UTV spinning on display",
+        "an off-road buggy on a turntable"
+      ],
+      "negatives": [
+        "a passenger car on display"
+      ]
+    },
+    "car": {
+      "synonyms": [
+        "a passenger car on a rotating platform",
+        "a compact car showcased indoors",
+        "a sedan on a turntable",
+        "a standard car spinning on display"
+      ],
+      "negatives": [
+        "a large truck on a rotating platform"
+      ]
+    },
+    "truck": {
+      "synonyms": [
+        "a pickup truck on a rotating platform",
+        "a heavy-duty truck showcased indoors",
+        "a large truck spinning on display",
+        "a lifted truck on a turntable"
+      ],
+      "negatives": [
+        "a small car on a platform"
+      ]
+    },
+    "person": {
+      "synonyms": [
+        "a person standing alone",
+        "a single person portrait",
+        "a human figure without a vehicle",
+        "a person posing indoors"
+      ],
+      "negatives": [
+        "a vehicle without people"
+      ]
+    }
+  },
+  "occupancy": {
+    "an empty vehicle": {
+      "synonyms": [
+        "an empty vehicle",
+        "a vehicle cabin with no people visible",
+        "an unoccupied vehicle interior",
+        "a parked vehicle with no driver"
+      ],
+      "negatives": [
+        "a driver seated behind the wheel"
+      ]
+    },
+    "a vehicle with a driver inside": {
+      "synonyms": [
+        "a vehicle with a driver inside",
+        "a driver seated behind the wheel",
+        "a person inside the vehicle cabin",
+        "an occupied vehicle with a driver"
+      ],
+      "negatives": [
+        "an empty parked vehicle"
+      ]
+    }
+  },
+  "armament": {
+    "an unarmed vehicle": {
+      "synonyms": [
+        "an unarmed vehicle",
+        "a civilian vehicle without weapons",
+        "a showroom vehicle with no mounted weapons",
+        "a vehicle designed for civilian roads"
+      ],
+      "negatives": [
+        "a military vehicle with guns"
+      ]
+    },
+    "an armed vehicle": {
+      "synonyms": [
+        "an armed vehicle",
+        "a military vehicle equipped with weapons",
+        "an armored vehicle with mounted guns",
+        "a vehicle carrying visible weaponry"
+      ],
+      "negatives": [
+        "a civilian vehicle with no weapons"
+      ]
+    }
+  },
+  "side": {
+    "front view of a car": {
+      "synonyms": [
+        "front view of a car",
+        "a head-on view of a Jeep",
+        "a front view of an SUV on a turntable",
+        "a vehicle facing the camera directly"
+      ],
+      "negatives": [
+        "a rear view of a vehicle"
+      ]
+    },
+    "right side of a car": {
+      "synonyms": [
+        "right side of a car",
+        "a passenger side view of a Jeep",
+        "the right profile of an SUV",
+        "a vehicle showing its right side"
+      ],
+      "negatives": [
+        "the left side of a vehicle"
+      ]
+    },
+    "rear view of a car": {
+      "synonyms": [
+        "rear view of a car",
+        "a back view of a Jeep",
+        "the tail end of an SUV",
+        "a vehicle facing away from the camera"
+      ],
+      "negatives": [
+        "a front view of a vehicle"
+      ]
+    },
+    "left side of a car": {
+      "synonyms": [
+        "left side of a car",
+        "a driver side view of a Jeep",
+        "the left profile of an SUV",
+        "a vehicle showing its left side"
+      ],
+      "negatives": [
+        "the right side of a vehicle"
+      ]
+    }
+  }
 }
