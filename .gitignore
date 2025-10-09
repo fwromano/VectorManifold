@@ -33,4 +33,9 @@ artifacts/
 .cache/
 assets/models/
 data/*
-
+!data/processed/
+data/processed/*
+!data/processed/sim2_cropped/
+!data/processed/sim2_cropped/**
+!data/processed/sim2_cropped_45deg/
+!data/processed/sim2_cropped_45deg/**

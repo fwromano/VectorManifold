@@ -42,6 +42,7 @@ class DatasetConfig:
     root: Path | None = None
     repo_id: str | None = None
     splits: Sequence[str] | None = None
+    limit_per_class: int = 0
 
 
 class ImageFolderDataset(Dataset):
@@ -83,6 +84,21 @@ def list_color_items(root: Path) -> Tuple[List[Tuple[Path, int]], List[str]]:
             for path in folder.glob(ext):
                 items.append((path, idx))
     return items, labels
+
+
+def limit_samples(items: Sequence[Tuple[object, int]], per_class: int) -> List[Tuple[object, int]]:
+    if per_class <= 0:
+        return list(items)
+    counts: Dict[int, int] = {}
+    limited: List[Tuple[object, int]] = []
+    for record in items:
+        label = record[1]
+        seen = counts.get(label, 0)
+        if seen >= per_class:
+            continue
+        limited.append(record)
+        counts[label] = seen + 1
+    return limited
 
 
 def load_hf_records(repo_id: str, splits: Sequence[str]) -> Tuple[List[Tuple[Image.Image, int]], List[str]]:
@@ -136,19 +152,22 @@ def evaluate(
     out_dir: Path,
     num_workers: int,
 ) -> Dict[str, object]:
-    model, preprocess, tokenizer = open_clip.create_model_and_transforms(model_cfg.model, pretrained=model_cfg.pretrained)
+    model, _, preprocess = open_clip.create_model_and_transforms(model_cfg.model, pretrained=model_cfg.pretrained)
+    tokenizer = open_clip.get_tokenizer(model_cfg.model)
     model.to(device)
     model.eval()
 
     if dataset_cfg.kind == "local":
         assert dataset_cfg.root is not None
         items, labels = list_color_items(dataset_cfg.root)
+        items = limit_samples(items, dataset_cfg.limit_per_class)
         prompt_template = "a photo of a {label} car"
         dataset = ImageFolderDataset(items, preprocess)
         label_indices = {idx: label for idx, label in enumerate(labels)}
     elif dataset_cfg.kind == "hf":
         assert dataset_cfg.repo_id is not None and dataset_cfg.splits is not None
         records, labels = load_hf_records(dataset_cfg.repo_id, dataset_cfg.splits)
+        records = limit_samples(records, dataset_cfg.limit_per_class)
         prompt_template = "a photo of a {label}"
         dataset = HFDataset(records, preprocess)
         label_indices = {idx: label for idx, label in enumerate(labels)}
@@ -205,6 +224,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--out", type=Path, default=Path("artifacts/reports/vehicle_compare"))
     parser.add_argument("--skip-model", action="append", default=[])
     parser.add_argument("--num-workers", type=int, default=0)
+    parser.add_argument("--per-class-limit", type=int, default=0)
     return parser.parse_args()
 
 
@@ -220,8 +240,19 @@ def main() -> None:
     models = [m for m in models if m.name not in set(args.skip_model)]
 
     datasets_cfg = [
-        DatasetConfig(name="color_folders", kind="local", root=args.color_root),
-        DatasetConfig(name="drbimmer_vehicle_classification", kind="hf", repo_id="DrBimmer/vehicle-classification", splits=("train", "validation")),
+        DatasetConfig(
+            name="color_folders",
+            kind="local",
+            root=args.color_root,
+            limit_per_class=args.per_class_limit,
+        ),
+        DatasetConfig(
+            name="drbimmer_vehicle_classification",
+            kind="hf",
+            repo_id="DrBimmer/vehicle-classification",
+            splits=("train", "validation"),
+            limit_per_class=args.per_class_limit,
+        ),
     ]
 
     args.out.mkdir(parents=True, exist_ok=True)
